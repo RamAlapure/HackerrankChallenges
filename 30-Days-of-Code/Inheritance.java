@@ -20,9 +20,10 @@ class Person {
 	}
 	 
 }
+
 class Student extends Person{
    
-	private int[] testScores;
+    private int[] testScores;
     
     Student(String firstName, String lastName, int idNumber, int[] testScores){
         super(firstName, lastName, idNumber);        
@@ -65,7 +66,9 @@ class Student extends Person{
     }
    
 }
+
 class Solution {
+	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String firstName = scan.next();
