@@ -11,7 +11,7 @@ public class Arithmetic {
         int tipPercent = scan.nextInt(); // tip percentage
         int taxPercent = scan.nextInt(); // tax percentage
         scan.close();
-      
+        
         // Write your calculation code here.
         double tip = (mealCost * tipPercent) / 100;
         double tax = (mealCost * taxPercent) / 100;
