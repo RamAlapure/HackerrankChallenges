@@ -27,4 +27,5 @@ public class Solution {
         Arrays.sort(sum);
         System.out.println(sum[15]);
     }
+    
 }
