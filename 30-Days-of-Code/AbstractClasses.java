@@ -8,8 +8,6 @@ abstract class Book
         author=a;
     }
     abstract void display();
-
-
 }
 
 //Write MyBook Class
