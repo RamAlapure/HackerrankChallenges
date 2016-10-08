@@ -9,6 +9,7 @@ public class Solution {
         int result = factorial(scan.nextInt());
         System.out.println(result);
     }
+    
     // Multiply 'n' by 'k' using addition:
     private static int factorial(int n) {
         // Recursive Case
