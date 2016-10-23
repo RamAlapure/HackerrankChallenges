@@ -10,18 +10,26 @@ class Node{
 	
 }
 class Solution {
-    public static Node removeDuplicates(Node head) {
-      //Write your code here
-        if(head == null) return null;
-        Node s = head;
-        while(s.next != null){
-            if(s.data == s.next.data)
-                s.next = s.next.next;
-            else
-                s = s.next;
-        } 
-        return head;
-    }
+    	public static Node removeDuplicates(Node head) {
+	    // Empty list case:
+	    if (head == null) {
+		return head;
+	    }
+
+	    Node current = head;
+	    while (current.next != null) {
+		// If data is equal, reset the next pointer
+		if (current.data == (current.next).data) {
+		    current.next = (current.next).next;
+		} else {
+		    // If data is not equal, go
+		    // to the next element
+		    current = current.next;
+		}
+	    }
+
+	    return head;
+	}
     public static  Node insert(Node head,int data)
      {
         Node p=new Node(data);			
