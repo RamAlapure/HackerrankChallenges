@@ -7,7 +7,7 @@
     {
         public static void main(String[] args){
 
-            String pattern = "\\b(\\w+)(\\b\\W+\\b\\1\\b)*"; //~~~Complete this line~~~
+            String pattern = "\\b(\\w+)(\\b\\W+\\b\\1\\b)*";//"(\\b\\w+\\b)(\\s*\\1\\b)+"; 
             Pattern r = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE); //~~~Complete this line~~~
 
             Scanner in = new Scanner(System.in);
