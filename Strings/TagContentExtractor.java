@@ -14,6 +14,7 @@ public class Solution{
          
          //Write your code here
          String pattern = "<(.+?)>([^<>]+)</\\1>"; //"\\<(.+)\\>([^\\<\\>]+)\\<\\/\\1\\>"; 
+         //or String pattern = "<([^>]+)>([^<>]+)</\\1>";
 
            int count = 0;
 
