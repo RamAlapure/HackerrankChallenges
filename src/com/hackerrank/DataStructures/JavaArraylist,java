@@ -1,0 +1,83 @@
+import java.io.*;
+import java.util.*;
+
+public class MeanMediumMax {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named MeanMediumMax. */
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        ArrayList<ArrayList<Integer>> rows = new ArrayList<>();
+        
+        for (int i = 0; i < n; i++) {
+            int d = in.nextInt();
+            ArrayList<Integer> row = new ArrayList<>();
+            
+            for (int j = 0; j < d; j++) {
+                row.add(in.nextInt());
+            }
+            
+            rows.add(row);
+        }
+        
+        int q = in.nextInt();
+        
+        for (int i = 0; i < q; i++) {
+            int x = in.nextInt();
+            int y = in.nextInt();
+            
+            try {
+                System.out.println(rows.get(x - 1).get(y - 1));
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("ERROR!");
+            }
+        }
+    }
+}
+
+//or
+
+import java.io.*;
+import java.util.*;
+
+
+
+public class MeanMediumMax {
+
+    public static void main(String[] args) 
+    {
+
+      Scanner scan = new Scanner(System.in);
+      ArrayList[] list= new ArrayList[20002];
+      int n;
+      n=scan.nextInt();
+      for(int i=1;i<=n;i++)
+      {
+
+          list[i]=new ArrayList();
+          int x=scan.nextInt();
+
+          for(int j=1;j<=x;j++)
+          {
+              int val=scan.nextInt();
+              list[i].add(val);
+
+          }
+      }
+      int q=scan.nextInt();
+
+      for(int i=1;i<=q;i++)
+      {
+              int x,y;
+              x=scan.nextInt();
+              y=scan.nextInt();
+              try
+              {
+                System.out.println(list[x].get(y-1));
+              }catch(Exception e)
+              {
+                  System.out.println("ERROR!");
+              }
+      }
+    }
+}
