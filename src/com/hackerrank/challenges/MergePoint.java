@@ -69,4 +69,28 @@ public class MergePoint {
 
     }
 
+    static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        SinglyLinkedList list = new SinglyLinkedList();
+        SinglyLinkedListNode iHead = head1;
+        SinglyLinkedListNode jHead = head2;
+        while (iHead != null && jHead != null) {
+            if (iHead.data <= jHead.data) {
+                list.insertNode(iHead.data);
+                iHead = iHead.next;
+            } else {
+                list.insertNode(jHead.data);
+                jHead = jHead.next;
+            }
+        }
+        while (iHead != null) {
+            list.insertNode(iHead.data);
+            iHead = iHead.next;
+        }
+        while (jHead != null) {
+            list.insertNode(jHead.data);
+            jHead = jHead.next;
+        }
+        return list.head;
+    }
+
 }

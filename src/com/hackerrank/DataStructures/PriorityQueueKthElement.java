@@ -12,14 +12,18 @@ public class PriorityQueueKthElement {
         kthLargest(ints, 3);
 
         find(ints, 3);
+
+        kthSmallest(ints, 3);
+
+        findKthSmallest(ints, 3);
     }
 
     private static Integer kthLargest(int[] ints, int k) {
         Integer[] integers = Arrays.stream(ints).boxed().toArray(Integer[]::new);
         Arrays.sort(integers, Collections.reverseOrder());
         System.out.println(Arrays.toString(integers));
-        System.out.println(integers[k-1]);
-        return integers[k-1];
+        System.out.println(integers[k - 1]);
+        return integers[k - 1];
     }
 
     private static Integer find(int[] ints, int k) {
@@ -30,6 +34,31 @@ public class PriorityQueueKthElement {
         IntStream.range(k, ints.length).forEach(i -> {
             Integer peek = queue.peek();
             if (peek < ints[i]) {
+                queue.poll();
+                queue.add(ints[i]);
+            }
+        });
+        System.out.println(queue);
+        System.out.println(queue.peek());
+        return queue.peek();
+    }
+
+    private static Integer kthSmallest(int[] ints, int k) {
+        Integer[] integers = Arrays.stream(ints).boxed().toArray(Integer[]::new);
+        Arrays.sort(integers);
+        System.out.println(Arrays.toString(integers));
+        System.out.println(integers[k - 1]);
+        return integers[k - 1];
+    }
+
+    private static Integer findKthSmallest(int[] ints, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        for (int i = 0; i < k; i++) {
+            queue.add(ints[i]);
+        }
+        IntStream.range(k, ints.length).forEach(i -> {
+            Integer peek = queue.peek();
+            if (peek > ints[i]) {
                 queue.poll();
                 queue.add(ints[i]);
             }
