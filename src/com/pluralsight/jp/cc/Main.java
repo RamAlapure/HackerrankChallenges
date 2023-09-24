@@ -6,6 +6,31 @@ public class Main {
 
     public static void main(String[] args) {
 
+        functionalCompositionAndChainingWithComparator();
+
+    }
+
+    private static void functionalCompositionAndChainingWithComparator() {
+        Person ram = new Person("Ram", 33);
+        Person rahul = new Person("Rahul", 33);
+        Person anvi = new Person("Anvi", 3);
+        Person atharv = new Person("Atharv", 1);
+
+        Comparator<Person> nameComparator = Comparator.comparing(Person::name);
+        System.out.println("Rahul > Ram : " + (nameComparator.compare(rahul, ram) > 0));
+        System.out.println("Atharv > Anvi : " + (nameComparator.compare(atharv, anvi) > 0));
+
+        Comparator<Person> reversed = nameComparator.reversed();
+
+        System.out.println("Rahul > Ram : " + (reversed.compare(rahul, ram) > 0));
+        System.out.println("Atharv > Anvi : " + (reversed.compare(atharv, anvi) > 0));
+
+        Comparator<Person> comparator = Comparator.comparing(Person::name).thenComparing(Person::age);
+        System.out.println("Rahul > Ram : " + (comparator.compare(rahul, ram) > 0));
+        System.out.println("Atharv > Anvi : " + (comparator.compare(atharv, anvi) > 0));
+    }
+
+    private static void methodChainingAndCompositionWithFunction() {
         Function<Meteo, Integer> tempInCelsius = Meteo::temp;
         Function<Integer, Double> celsiusToFahrenheit = t -> t * 9d / 5d + 32d;
         Function<Meteo, Double> tempInFahrenheit = tempInCelsius.andThen(celsiusToFahrenheit);
