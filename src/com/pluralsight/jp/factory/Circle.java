@@ -1,4 +1,4 @@
-package com.pluralsight.jp.fr;
+package com.pluralsight.jp.factory;
 
 import java.awt.*;
 
